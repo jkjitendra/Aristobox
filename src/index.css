@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Add to the bottom of src/index.css */
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* Smooth animations */
+* {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Focus styles for accessibility */
+button:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.8);
+  outline-offset: 2px;
+}
+
+/* Prevent text selection on buttons */
+button {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Custom animation keyframes */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+
+
+
+
+
+
+/* Hide Radix popper wrapper until the content reports data-state="open" */
+[data-radix-popper-content-wrapper] {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .12s ease;
+  /* keep it out of visual flow while hidden */
+  will-change: transform, opacity;
+}
+
+/* When wrapper contains an open content, show it */
+[data-radix-popper-content-wrapper]:has([data-state="open"]) {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Also ensure the content itself animates only after open state (optional) */
+[data-radix-popper-content-wrapper] [data-state="open"] {
+  opacity: 1;
+  transition: opacity .12s ease .02s;
+}

@@ -1,6 +1,6 @@
 # 🎒 Aristobox PWA
 
-Official website: [https://aristobox.netlify.app/](https://aristobox.netlify.app/)
+Official website: <a href="https://aristobox.netlify.app/" target="_blank" rel="noopener noreferrer">https://aristobox.netlify.app/</a>
 
 > Progressive Web App for offline educational kit order collection, optimized for field sales teams on tablets.
 
